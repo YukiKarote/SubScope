@@ -336,7 +336,7 @@ def delete_domain(domain='*', program='*', scope=None):
                 'domains': cursor.execute("SELECT COUNT(domain) FROM domains WHERE domain = ? AND program = ?", (domain, program)).fetchone()[0]
             }
 
-            # Delete based on scope or all if scope is None
+            # Delete based on scope or all if scope is None.
             if scope is None:
                 cursor.execute("DELETE FROM subdomains WHERE domain = ? AND program = ?", (domain, program))
                 cursor.execute("DELETE FROM domains WHERE domain = ? AND program = ?", (domain, program))
